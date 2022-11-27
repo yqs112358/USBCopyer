@@ -78,7 +78,7 @@ string GetDeviceLabel(char drive)
     DWORD dwFileSystemFlags;
     CHAR szFileSystemNameBuffer[1024];
     CHAR szDriveName[MAX_PATH];
-    string drivePath = drive + ":\\";
+    string drivePath = string(1, drive) + ":\\";
 
     if (!GetVolumeInformationA(drivePath.c_str(), szDriveName, MAX_PATH, &dwVolumeSerialNumber,
         &dwMaximumComponentLength, &dwFileSystemFlags, szFileSystemNameBuffer, sizeof(szFileSystemNameBuffer)))
