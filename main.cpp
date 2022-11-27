@@ -1,6 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include "DeviceHandler.h"
 #include <iostream>
+#include "Config.h"
 
 HINSTANCE hInst;
 HWND hWnd;
@@ -61,17 +62,25 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    // debug console
+    AllocConsole();
+    freopen("CONOUT$", "w", stdout);
+
     // create window
     if (!CreateWnd(hInstance))
+    {
+        printf("Fail to create window\n");
         return -1;
+    }
+
+    // load config
+    InitConfig();
 
     // register notification
     RegisterDeviceNotify(hWnd);
 
-    AllocConsole();
-    freopen("CONOUT$", "w", stdout);
-
     // event loop
+    printf("[INFO] ready\n");
     MSG msg;
     while (GetMessage(&msg, nullptr, 0, 0))
     {
