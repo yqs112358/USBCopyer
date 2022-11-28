@@ -4,7 +4,7 @@ The program will traverses the directory of any USB disk after it is inserted, a
 
 ## Execution
 
-The main program is executed directly without pop-ups. If you need to close it, please use Task Manager to end the process.
+Directly execute the main program. No pop-ups and windows will show. If you need to terminate the program, please use Task Manager to end the process.
 
 When a USB disk being inserted, the program opens a new thread responsible for its work: traversing the directory and copying files to the specified location by directory level, file type, file size, etc. as limited by the configuration file.
 
