@@ -1,9 +1,9 @@
-#define CONFIG_FILE_PATH "usb_config.ini"
+#define CONFIG_FILE_PATH "config.ini"
 #define CONFIG_FILE_DEF_CONTENT \
-R"([Copy]
+R"([Main]
 SearchMaxDepth=5
 DelayStart=30
-FileExts=.doc|.ppt|.xls|.docx|.pptx|.xlsx|.txt
+FileExts=.doc|.ppt|.xls|.docx|.pptx|.xlsx|.txt|.pdf
 FileSizeLimit=1000MB
 SavePath=./.saved/<date>_<time>_<drivelabel>/
 )"
@@ -41,18 +41,18 @@ bool InitConfig()
 		return false;
 
 	// parse basic data
-	searchMaxDepth = ini.GetLongValue("Copy", "SearchMaxDepth", 0);
-	delayStart = ini.GetLongValue("Copy", "DelayStart", 0);
+	searchMaxDepth = ini.GetLongValue("Main", "SearchMaxDepth", 0);
+	delayStart = ini.GetLongValue("Main", "DelayStart", 0);
 	
 	// parse file exts
-	string extsStr = ini.GetValue("Copy", "FileExts", "");
+	string extsStr = ini.GetValue("Main", "FileExts", "");
 	if (extsStr.empty())
 		fileExts = {};
 	else
 		fileExts = SplitStrWithPattern(extsStr, "|");
 
 	// parse file size string
-	string sizeLimitStr = ini.GetValue("Copy", "FileSizeLimit", "0");
+	string sizeLimitStr = ini.GetValue("Main", "FileSizeLimit", "0");
 	string realNumStr;
 	int ratio;
 	if (EndsWith(sizeLimitStr, "GB"))
@@ -85,7 +85,7 @@ bool InitConfig()
 	fileSizeLimit = num << ratio;
 
 	// parse save dir
-	saveDir = ini.GetValue("Copy", "SavePath", "./.saved/<date>_<time>_<drivelabel>/");
+	saveDir = ini.GetValue("Main", "SavePath", "./.saved/<date>_<time>_<drivelabel>/");
 	if (saveDir.find(":") == string::npos)
 	{
 		// change saveDir to real absolute path
