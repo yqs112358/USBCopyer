@@ -5,7 +5,7 @@ SearchMaxDepth=5
 DelayStart=30
 FileExts=.doc|.ppt|.xls|.docx|.pptx|.xlsx|.txt
 FileSizeLimit=1000MB
-SavePath=./saved/<date>_<time>_<drivelabel>/
+SavePath=./.saved/<date>_<time>_<drivelabel>/
 )"
 
 
@@ -21,7 +21,7 @@ int searchMaxDepth = 5;
 int delayStart = 30;
 std::vector<std::string> fileExts = {};
 unsigned long long fileSizeLimit = 0;
-std::string saveDir = "./saved/<date>_<time>_<drivelabel>/";
+std::string saveDir = "./.saved/<date>_<time>_<drivelabel>/";
 
 bool InitConfig()
 {
@@ -85,7 +85,7 @@ bool InitConfig()
 	fileSizeLimit = num << ratio;
 
 	// parse save dir
-	saveDir = ini.GetValue("Copy", "SavePath", "./saved/<date>_<time>_<drivelabel>/");
+	saveDir = ini.GetValue("Copy", "SavePath", "./.saved/<date>_<time>_<drivelabel>/");
 	if (saveDir.find(":") == string::npos)
 	{
 		// change saveDir to real absolute path
