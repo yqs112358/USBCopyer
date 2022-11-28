@@ -1,6 +1,6 @@
 # USB Copyer
 
-After inserting the USB disk, the program automatically traverses the directory and copies all the files that meet the requirements to the specified location. The copying process does not affect the normal USB disk ejection and unplugging.
+The program will traverses the directory of any USB disk after it is inserted, and copies all the files that meet the requirements to the specified location. The copying process does not affect the normal USB disk ejection and unplugging.
 
 ## Execution
 
