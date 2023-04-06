@@ -1,14 +1,15 @@
 # USB Copyer
 
-The program will traverses the directory of any USB disk after it is inserted, and copies all the files that meet the requirements to the specified location. The copying process does not affect the normal USB disk ejection and unplugging.
+**⚠ For study and research purposes only, please use for legal purposes**
 
-## Execution
+- The program will traverses the directory of any USB disk after it is inserted, and copies all the files that meet the requirements to the specified location. 
+- The copying process does not affect the normal USB disk ejection and unplugging.
 
-Directly execute the main program. No pop-ups and windows will show. If you need to terminate the program, please use Task Manager to end the process.
+## Usage
 
-When a USB disk being inserted, the program opens a new thread responsible for its work: traversing the directory and copying files to the specified location by directory level, file type, file size, etc. as limited by the configuration file.
-
-If the USB disk is ejected during the copying process, it can be ejected normally without the occupancy prompt.
+1. Directly execute the main program. No pop-ups and windows will show. If you need to terminate the program, please use Task Manager to end the process.
+2. When a USB disk being inserted, the program opens a new thread responsible for its work: traversing the directory and copying files to the specified location by directory level, file type, file size, etc. as limited by the configuration file.
+3. If the USB disk is ejected during the copying process, it can be ejected normally without the occupancy prompt.
 
 ## Config file
 
@@ -30,6 +31,6 @@ SavePath=./.saved/<date>_<time>_<drivelabel>/
 
 ## Save & Log
 
-In default, the save directory is `./.saved/<date>_<time>_<drivelabel>/`, and the directory `.saved` is hidden. You can access this directory by directly input its address in explorer.exe, or you can change target save path in config file.
+- In default, the save directory is `./.saved/<date>_<time>_<drivelabel>/`, and the directory `.saved` is hidden. You can access this directory by directly input its address in explorer.exe, or you can change target save path in config file.
 
-By the way, logs will be output into directory `.saved`.
+- By the way, logs will be output into directory `.saved`.
